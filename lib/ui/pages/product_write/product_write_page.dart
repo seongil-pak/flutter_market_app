@@ -22,6 +22,10 @@ class _ProductWritePageState extends State<ProductWritePage> {
     super.dispose();
   }
 
+  void onWriteDone() {
+    formKey.currentState?.validate();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -34,10 +38,14 @@ class _ProductWritePageState extends State<ProductWritePage> {
           body: Form(
             key: formKey,
             child: ListView(
+              padding: EdgeInsets.all(
+                20,
+              ),
               children: [
-                //
                 ProductWritePictureArea(),
+                SizedBox(height: 20),
                 ProductCatecoryBox(),
+                SizedBox(height: 20),
                 TextFormField(
                   controller: titleController,
                   decoration: InputDecoration(
@@ -45,19 +53,28 @@ class _ProductWritePageState extends State<ProductWritePage> {
                   ),
                   validator: ValidatorUtil.validatorTitle,
                 ),
+                SizedBox(height: 20),
                 TextFormField(
                   controller: priceController,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     hintText: '가격을 입력해 주세요',
                   ),
+                  validator: ValidatorUtil.validatorPrice,
                 ),
+                SizedBox(height: 20),
                 TextFormField(
                   controller: contentController,
                   decoration: InputDecoration(
                     hintText: '내용을 입력해 주세요',
                   ),
-                )
+                  validator: ValidatorUtil.validatorContent,
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: onWriteDone,
+                  child: Text('작성 완료'),
+                ),
               ],
             ),
           )),
