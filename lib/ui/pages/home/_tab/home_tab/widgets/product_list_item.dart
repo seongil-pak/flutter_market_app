@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_market_app/ui/pages/product_detail/widgets/product_detail.dart';
+import 'package:flutter_market_app/ui/pages/product_detail/product_detail_page.dart';
 
 class ProductListItem extends StatelessWidget {
   @override
@@ -13,7 +13,7 @@ class ProductListItem extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return ProductDetail();
+              return ProductDetailPage();
             },
           ),
         );
