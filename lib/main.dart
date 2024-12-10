@@ -18,6 +18,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
         highlightColor: Colors.orange,
+        appBarTheme: AppBarTheme(
+            centerTitle: false,
+            titleTextStyle: TextStyle(
+              fontSize: 18,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            )),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
             foregroundColor: WidgetStatePropertyAll(Colors.white),
@@ -78,8 +85,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: WelcomePage(),
-      // home: HomePage(),
+      // home: WelcomePage(),
+      home: HomePage(),
     );
   }
 }
